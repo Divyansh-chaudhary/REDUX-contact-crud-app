@@ -1,24 +1,25 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { addContact } from '../store'
+import { addContact } from '../../actions/contactActions'
+import { useHistory } from 'react-router-dom'
 
 export default function CreateContact() {
-   const dispatch = useDispatch();
-   const [input, setInput] = useState({
-      name: "",
-      email: "",
-      phone: ""
-   });
-   const { name, email, phone } = input;
+   const history = useHistory(),
+      dispatch = useDispatch(),
+      [input, setInput] = useState({
+         name: "",
+         email: "",
+         phone: ""
+      }),
+      { name, email, phone } = input;
 
    const inputEvent = e => setInput({ ...input, [e.target.name]: e.target.value });
 
    const submitForm = e => {
       e.preventDefault();
-      addContact(input);
       dispatch(addContact(input));
+      history.push("/");
    }
-
 
    return (
       <section className="card border-0 shadow">

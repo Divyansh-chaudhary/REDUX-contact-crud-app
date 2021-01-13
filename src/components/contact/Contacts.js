@@ -3,7 +3,8 @@ import { useSelector } from 'react-redux';
 import Contact from './Contact';
 
 export default function App() {
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(({ contactState }) => contactState.contacts);
+
   return (
     <table className="table shadow">
       <thead className="bg-danger text-white">

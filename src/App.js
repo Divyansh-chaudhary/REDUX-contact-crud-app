@@ -5,10 +5,10 @@ import { Provider } from 'react-redux'
 import store from './store'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import Contacts from './components/Contacts'
-import CreateContact from './components/CreateContact'
-import EditContact from './components/EditContact'
-import DeleteContact from './components/DeleteContact'
+import Contacts from './components/contact/Contacts'
+import CreateContact from './components/contact/CreateContact'
+import EditContact from './components/contact/EditContact'
+import DeleteContact from './components/contact/DeleteContact'
 
 function App() {
   return (
