@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addContact } from '../store'
 
 export default function CreateContact() {
+   const dispatch = useDispatch();
    const [input, setInput] = useState({
       name: "",
       email: "",
@@ -8,13 +11,12 @@ export default function CreateContact() {
    });
    const { name, email, phone } = input;
 
-   const inputEvent = (e) => {
-      setInput({ ...input, [e.target.name]: e.target.value })
-   }
+   const inputEvent = e => setInput({ ...input, [e.target.name]: e.target.value });
 
-   const submitForm = (e) => {
+   const submitForm = e => {
       e.preventDefault();
-
+      addContact(input);
+      dispatch(addContact(input));
    }
 
 

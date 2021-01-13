@@ -1,6 +1,15 @@
 import { createStore } from 'redux';
 import { composeWithDevTools } from "redux-devtools-extension";
 
+// action
+export const addContact = contact => {
+   return {
+      type: "CREATE_CONTACT",
+      data: contact
+   }
+}
+
+// initialstate
 const initialState = {
    contacts: [
       {
@@ -42,10 +51,21 @@ const initialState = {
    ]
 };
 
-const contactReducer = (state = initialState, action) => {
+// reducer
+const managerReducer = (state = initialState, action) => {
    switch (action.type) {
+      case "CREATE_CONTACT":
+         return {
+            ...state,
+            contacts: [
+               action.data,
+               ...state.contacts
+            ]
+         }
       default: return state;
    }
 }
-const store = createStore(contactReducer, composeWithDevTools());
+
+// createstore
+const store = createStore(managerReducer, composeWithDevTools());
 export default store;

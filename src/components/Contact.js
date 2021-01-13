@@ -18,12 +18,12 @@ export default function Contact({ contact }) {
          <td>{phone}</td>
          <td>{email}</td>
          <td className="actions">
-            <Link to="/contacts/edit">
+            <Link title="Edit" to="/contacts/edit">
                <span className="material-icons mr-2">
                   edit
                </span>
             </Link>
-            <Link to="/contacts/delete">
+            <Link title="Delete" to="/contacts/delete">
                <span className="material-icons">
                   remove_circle
                </span>
