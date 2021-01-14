@@ -8,7 +8,6 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Contacts from './components/contact/Contacts'
 import CreateContact from './components/contact/CreateContact'
 import EditContact from './components/contact/EditContact'
-import DeleteContact from './components/contact/DeleteContact'
 
 function App() {
   return (
@@ -20,8 +19,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={Contacts} />
               <Route exact path="/contacts/add" component={CreateContact} />
-              <Route exact path="/contacts/edit" component={EditContact} />
-              <Route exact path="/contacts/delete" component={DeleteContact} />
+              <Route exact path="/contacts/edit/:id" component={EditContact} />
             </Switch>
           </section>
         </div>
